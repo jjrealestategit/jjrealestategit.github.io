@@ -240,7 +240,7 @@
       Subject: document.querySelector('#subject').value,
       Body: document.querySelector('#message').value
     }).then(
-      message => alert(message)
+      message => console.log(message)
     );
 
   }
