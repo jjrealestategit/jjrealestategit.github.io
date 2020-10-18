@@ -241,7 +241,7 @@
       From: document.querySelector('#email').value,
       Subject: document.querySelector('#subject').value,
       Body:  `<b style="color: #4c3303; font-weight: bolder;">${document.querySelector('#message').value}</b> <br />
-              This email was sent from <b style="color: #4c3303; font-weight: bold;">JJ Real Estate & Jay Mo Construction website</b> by ${document.querySelector('#name').value}
+              This email was sent from <b style="color: #4c3303; font-weight: bold;">JJ Real Estate & Jay Mo Construction website</b> by <b style="color: #4c3303; font-weight: bolder;">${document.querySelector('#name').value}</b>
               with the email ${document.querySelector('#email').value}
       `
     }).then(
@@ -255,10 +255,11 @@
 
     if (msg === 'OK'){
       iziToast.success({
-        timeout: 5000, icon: 'fa fa-chrome',
+        timeout: 5000, 
+        icon: 'fa fa-chrome',
         position: "center",
         title: 'Email Successfully Sent!',
-        message: `Hi ${document.querySelector('#email').value}, your email was sent successfully.`,
+        message: `Hi ${document.querySelector('#name').value}, your email was sent successfully.`,
       });
     }
     else{
@@ -267,7 +268,7 @@
         icon: 'fa fa-warning',
         position: "center",
         title: 'Email Successfully Sent!',
-        message: `Hi ${document.querySelector('#email').value}, please try again later.`,
+        message: `Hi ${document.querySelector('#name').value}, please try again later.`,
       });
     }
       
