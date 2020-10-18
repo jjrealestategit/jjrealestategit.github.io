@@ -233,16 +233,39 @@
   function sendEmail() {
     Email.send({
       Host: "smtp.gmail.com",
-      Username: "achanamosey@gmail.com",
-      Password: "Emmajay!2",
-      To: 'achana.demo@gmail.com',
-      From: 'achanamosey@gmail.com',//document.querySelector('#email').value,
+      Username: "jjrealestateandjaymocon@gmail.com",
+      Password: "jjrealestateandjaymocon@123",
+      To: 'jjrealestateandjaymocon@gmail.com',
+      From: document.querySelector('#email').value,
       Subject: document.querySelector('#subject').value,
       Body: document.querySelector('#message').value
     }).then(
-      message => console.log(message)
+      message => showSuccessOrFailure(message)
+
     );
 
+  }
+
+  function showSuccessOrFailure(msg) {
+
+    if (msg === 'OK'){
+      iziToast.success({
+        timeout: 5000, icon: 'fa fa-chrome',
+        position: "center",
+        title: 'Email Successfully Sent!',
+        message: `Hi ${document.querySelector('#email').value}, your email was sent successfully.`,
+      });
+    }
+    else{
+      iziToast.warning({
+        timeout: 5000, 
+        icon: 'fa fa-warning',
+        position: "center",
+        title: 'Email Successfully Sent!',
+        message: `Hi ${document.querySelector('#email').value}, please try again later.`,
+      });
+    }
+      
   }
 
 
