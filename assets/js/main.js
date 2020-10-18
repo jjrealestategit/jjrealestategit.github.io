@@ -16,6 +16,8 @@
     }
   });
 
+  const fg = 'jjrealestateandjaymocon@';
+
   // Smooth scroll for the navigation menu and links with .scrollto classes
   var scrolltoOffset = $('#header').outerHeight() - 2;
   $(document).on('click', '.nav-menu a, .mobile-nav a, .scrollto', function (e) {
@@ -233,12 +235,15 @@
   function sendEmail() {
     Email.send({
       Host: "smtp.gmail.com",
-      Username: "jjrealestateandjaymocon@gmail.com",
-      Password: "jjrealestateandjaymocon@123",
-      To: 'jjrealestateandjaymocon@gmail.com',
+      Username: fg+"gmail.com",
+      Password: fg+"123",
+      To: fg+'gmail.com',
       From: document.querySelector('#email').value,
       Subject: document.querySelector('#subject').value,
-      Body: document.querySelector('#message').value
+      Body:  `<b style="color: #4c3303; font-weight: bolder;">${document.querySelector('#message').value}</b> <br />
+              This email was sent from <b style="color: #4c3303; font-weight: bold;">JJ Real Estate & Jay Mo Construction website</b> by ${document.querySelector('#name').value}
+              with the email ${document.querySelector('#email').value}
+      `
     }).then(
       message => showSuccessOrFailure(message)
 
